@@ -5,7 +5,7 @@ public class CharForm {
         private String name;
         private String type;
 
-
+    //Class qui va expliquer ce que j'ai le droit d'avoir dans mon form
     public String getName() {
         return name;
     }
