@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Liste des personnages</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+<img class="header" th:src="@{/photos/DND-1.png}" alt="DnD photo"/>
+<h1>Mon personnage</h1>
+
+<table class="table table-stripped mt-5">
+    <thead class="table-head">
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Classe</th>
+        <th>Point de vie</th>
+        <th></th>
+    </thead>
+    <tbody>
+    <tr th:each="char : ${characterList}">
+        <td th:text="${char.id}"></td>
+        <td th:text="${char.name}"></td>
+        <td th:text="${char.type}"></td>
+        <td th:text="${char.hp}"></td>
+        <td><a th:href="@{/personnage/}+${char.id}">Voir</a></td>
+    </tr>
+    </tbody>
+
+</table>
+<div class="container-fluid d-flex justify-content-end">
+<a class="btn btn-primary " th:href="@{/creer-mon-personnage}">Ajouter un personnage</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+
+</body>
+</html>
